@@ -111,4 +111,4 @@ def write_report(path: Path, *, posts, patches, changes, chronicle, classes,
     L.extend(f"- {p.date} [{p.source}] {p.title} ({p.type})" for p in
              sorted(skipped, key=lambda p: p.date))
     w("")
-    path.write_text("\n".join(L) + "\n", encoding="utf-8")
+    path.write_text("\n".join(L) + "\n", encoding="utf-8", newline="\n")

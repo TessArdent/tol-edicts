@@ -231,7 +231,7 @@ def main() -> int:
     for name, obj in (("patches", patch_records), ("changes", change_records),
                       ("chronicle", chronicle), ("classes", classes_out)):
         (DATA / f"{name}.json").write_text(
-            json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
 
     write_report(PIPE / "report.md", posts=posts, patches=patch_records,
                  changes=change_records, chronicle=chronicle, classes=classes,
