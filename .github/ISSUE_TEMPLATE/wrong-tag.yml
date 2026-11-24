@@ -1,0 +1,41 @@
+name: Wrong tag
+description: A change is tagged with the wrong class or category, or is missing one.
+title: "Wrong tag: "
+labels: [tagging]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the patch, class or search page where you saw it.
+      placeholder: https://…/tol-edicts/patch/1.0.2/changes/
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: The change
+      description: Paste the line as it appears on the site.
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What's wrong
+      options:
+        - Wrong class
+        - Missing class
+        - Wrong category
+        - Not a change (intro, reply, chatter)
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: correct
+    attributes:
+      label: What it should be
+      placeholder: "e.g. Poacher, not Hunter"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else

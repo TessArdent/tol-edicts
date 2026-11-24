@@ -12,8 +12,9 @@ export const changes = load("changes");
 export const chronicle = load("chronicle");
 export const classes = load("classes");
 
-// GitHub repository, for "report a wrong tag" links. Set in TO-5.
-export const REPO_URL = "";
+// GitHub repository, for "report a wrong tag" links. Set by the Pages workflow;
+// empty in local builds, which hides those links.
+export const REPO_URL = (process.env.REPO_URL || "").replace(/\/$/, "");
 
 export const CATEGORIES = [
   "Class Balance", "Game-wide", "Quality of Life / UI", "Bug Fixes",
