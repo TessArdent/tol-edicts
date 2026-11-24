@@ -1,0 +1,5 @@
+# Reviewed false positives (see Hawthorn's README).
+[[allowlists]]
+description = "Archived public Throne of Lies patch notes and the data built from them: long image/upload hashes and IDs in forum and Steam posts, not credentials"
+targetRules = ["aws-access-token", "generic-api-key"]
+paths = ['''^changelogs/''', '''^data/''']
