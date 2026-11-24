@@ -1,0 +1,11 @@
+# Per-item corrections, keyed by item key (see changes.json "key").
+# Keys are a hash of the patch id and the item's plain text, so they survive
+# re-runs as long as the text doesn't change.
+#
+# Any of: classes (replaces), addClasses, category, kind, drop: true
+#
+# Example:
+# 3f9a1c2b7d:
+#   classes: [Hunter]
+#   category: Class Balance
+{}

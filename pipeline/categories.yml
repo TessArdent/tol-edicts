@@ -1,0 +1,116 @@
+# Category rules. Regexes are case-insensitive.
+#
+# headings: matched against section headings, innermost first.
+# text:     used only when no heading decided it. Tried in file order.
+#
+# Headings that name only classes ("## Hunter") are handled separately and
+# never reach these rules.
+
+categories:
+  Bug Fixes:
+    headings:
+      - '\bbugs?\b'
+      - '\bfix(es|ed)?\b'
+      - '\bhotfix(es)?\b'
+      - '\bknown issues\b'
+    text:
+      - '^\s*(fixed|fixes|fix)\b'
+      - '\bbug(s|ged)?\b'
+      - '\bno longer (crash|freez|break)'
+  Store & Cosmetics:
+    headings:
+      - '\bstore\b'
+      - '\bshop\b'
+      - '\bcosmetics?\b'
+      - '\barmou?rs?\b'
+      - '\bportraits?\b'
+      - '\bitems?\b'
+      - '\bskins?\b'
+      - '\bthrone ?pass\b'
+      - '\brewards?\b'
+      - '\bpurchases?\b'
+      - '\bart\b'
+    text:
+      - '\b(armou?rs?|portraits?|skins?|outfits?|cosmetics?|store|shop|pets?|emotes?)\b'
+  Events:
+    headings:
+      - '\bevents?\b'
+      - '\bfestival\b'
+      - '\bhalloween\b'
+      - '\bsnowcrest\b'
+      - '\bwinter\b'
+      - '\banniversary\b'
+      - '\bholiday\b'
+      - '\bdouble (gp|gold)\b'
+    text:
+      - '\b(event|festival|halloween|snowcrest|anniversary|holiday|double (gp|gold))\b'
+  Technical:
+    headings:
+      - '\bstability\b'
+      - '\bservers?\b'
+      - '\bsecurity\b'
+      - '\bperformance\b'
+      - '\boptimi[sz]ation\b'
+      - '\bnetwork\b'
+      - '\banti-?hack'
+      - '\bunity\b'
+      - '\bwindows\b'
+    text:
+      - '\b(servers?|stability|security|performance|fps|memory|disconnect(s|ion|ed)?|lag|load times?|unity|windows|anti-?hack\w*|crash(es|ed)?)\b'
+  Quality of Life / UI:
+    headings:
+      - '\bquality of life\b'
+      - '\bqol\b'
+      - '\bui\b'
+      - '\bux\b'
+      - '\binterface\b'
+      - '\blobby\b'
+      - '\bvisuals?\b'
+      - '\bgfx\b'
+      - '\bvfx\b'
+      - '\bgraphics\b'
+      - '\bimprovements?\b'
+      - '\blocali[sz]ation\b'
+      - '\btutorial\b'
+      - '\bnewcomers?\b'
+      - '\bonboarding\b'
+      - '\bfriends list\b'
+      - '\baudio\b'
+      - '\bsounds?\b'
+      - '\bsettings\b'
+    text:
+      - '\b(ui|button|tooltips?|menus?|settings?|options?|fonts?|icons?|tutorial|glossary|notifications?|camera|animations?|sounds?|music|hotkeys?|shortcuts?|scroll\w*|journal|deathnote|lobby|chat box|chat window|player list)\b'
+  Dev Notes:
+    headings:
+      - '\bdev(eloper)? ?notes?\b'
+      - '\bexplain'
+      - '\bfaq\b'
+      - '\bconclusion\b'
+      - '\bintroduction\b'
+  Game-wide:
+    headings:
+      - '\bgeneral\b'
+      - '\bmechanics?\b'
+      - '\bgameplay\b'
+      - '\bgame ?modes?\b'
+      - '\b(quick|classic|custom|duel|casual) mode\b'
+      - '\bfactions?\b'
+      - '\bmisc(ellaneous)?\b'
+      - '\bother\b'
+      - '\badditional changes\b'
+      - '\bchanges\b'
+      - '\bgold\b'
+      - '\bmatchmak'
+  Class Balance:
+    headings:
+      - '\bbalance\b'
+      - '\bclass(es)?\b'
+      - '\bbuffs?\b'
+      - '\bnerfs?\b'
+
+# Kinds, from the innermost heading that matches. Default is "change".
+#   summary:     overview lists that repeat changes detailed further down
+#   explanation: the developers' reasoning
+kinds:
+  explanation: '\bexplain|\bexplanation|\bdev(eloper)? ?notes?\b|\breasoning\b|\bwhy\b|\bdesign notes\b'
+  summary: '\bsummary\b|\boverview\b|\bhighlights\b|\btl;? ?dr\b'

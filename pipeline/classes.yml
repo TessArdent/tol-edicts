@@ -1,0 +1,202 @@
+# Classes of Throne of Lies, grouped under their newest name.
+#
+# name:      newest name; class pages use it
+# faction:   Blue Dragon | Unseen | Cult | Neutral (null = not yet confirmed)
+# aliases:   former names and common abbreviations; matched case-sensitively
+# abilities: ability names unique enough to identify the class on their own
+#
+# First pass (TO-1): names are taken from the headings used in the notes.
+# Factions, renames and abilities are filled in by TO-2.
+
+- name: King
+  faction: null
+  aliases: []
+  abilities: []
+- name: Prince
+  faction: null
+  aliases: []
+  abilities: []
+- name: Princess
+  faction: null
+  aliases: []
+  abilities: []
+- name: Duchess
+  faction: null
+  aliases: []
+  abilities: []
+- name: Psycho King
+  faction: null
+  aliases: []
+  abilities: []
+- name: Knight
+  faction: null
+  aliases: []
+  abilities: [Cold Steel]
+- name: Enforcer
+  faction: null
+  aliases: []
+  abilities: []
+- name: Death Knight
+  faction: null
+  aliases: []
+  abilities: []
+- name: Noble
+  faction: null
+  aliases: []
+  abilities: [Noble Twin]
+- name: Traitor Noble
+  faction: null
+  aliases: []
+  abilities: []
+- name: Aristocrat
+  faction: null
+  aliases: []
+  abilities: []
+- name: Sheriff
+  faction: null
+  aliases: []
+  abilities: []
+- name: Marshal
+  faction: null
+  aliases: []
+  abilities: []
+- name: Paladin
+  faction: null
+  aliases: []
+  abilities: []
+- name: Inquisitor
+  faction: null
+  aliases: []
+  abilities: []
+- name: Hunter
+  faction: null
+  aliases: []
+  abilities: []
+- name: Poacher
+  faction: null
+  aliases: []
+  abilities: []
+- name: Seeker
+  faction: null
+  aliases: []
+  abilities: []
+- name: Observer
+  faction: null
+  aliases: []
+  abilities: []
+- name: Mercenary
+  faction: null
+  aliases: []
+  abilities: [Stand Guard]
+- name: Sellsword
+  faction: null
+  aliases: []
+  abilities: [Stonewall]
+- name: Physician
+  faction: null
+  aliases: []
+  abilities: []
+- name: Alchemist
+  faction: null
+  aliases: []
+  abilities: [Stoneskin, Coagulate]
+- name: Herbalist
+  faction: null
+  aliases: []
+  abilities: []
+- name: Priest
+  faction: null
+  aliases: []
+  abilities: []
+- name: Court Wizard
+  faction: null
+  aliases: [CW]
+  abilities: [Magical Barrier]
+- name: Sorcerer
+  faction: null
+  aliases: []
+  abilities: []
+- name: Sage
+  faction: null
+  aliases: []
+  abilities: []
+- name: Mystic
+  faction: null
+  aliases: []
+  abilities: []
+- name: Illusionist
+  faction: null
+  aliases: []
+  abilities: []
+- name: Chronomancer
+  faction: null
+  aliases: []
+  abilities: []
+- name: Timesnatcher
+  faction: null
+  aliases: []
+  abilities: [Dark Dimension]
+- name: Drunk
+  faction: null
+  aliases: []
+  abilities: []
+- name: Alcoholic
+  faction: null
+  aliases: []
+  abilities: []
+- name: Butler
+  faction: null
+  aliases: []
+  abilities: []
+- name: Psychic
+  faction: null
+  aliases: []
+  abilities: []
+- name: Mastermind
+  faction: null
+  aliases: [MM]
+  abilities: []
+- name: Assassin
+  faction: null
+  aliases: []
+  abilities: [Nightshade]
+- name: Cult Leader
+  faction: null
+  aliases: [CL]
+  abilities: []
+- name: Apostle
+  faction: null
+  aliases: []
+  abilities: []
+- name: Ritualist
+  faction: null
+  aliases: []
+  abilities: []
+- name: Invoker
+  faction: null
+  aliases: []
+  abilities: []
+- name: Possessor
+  faction: null
+  aliases: []
+  abilities: []
+- name: Reaper
+  faction: null
+  aliases: []
+  abilities: []
+- name: Soulcatcher
+  faction: null
+  aliases: []
+  abilities: []
+- name: Fool
+  faction: null
+  aliases: []
+  abilities: []
+- name: Scorned
+  faction: null
+  aliases: []
+  abilities: []
+- name: Pretender
+  faction: null
+  aliases: []
+  abilities: []

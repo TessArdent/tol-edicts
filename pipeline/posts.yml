@@ -1,0 +1,51 @@
+# Per-post corrections, keyed by file name (without .md) under
+# changelogs/{forum,steam}/posts.
+#
+# kind:    patch | chronicle | skip
+# type:    chronicle type (Devblog, Class Reveal, Event, News, Preview) or skip reason
+# version: one version or a list; replaces what the title says
+# note:    why, for whoever edits this next
+
+# --- Steam posts whose title has no version or the wrong one ---------------
+2017-09-30_Hotfix-e-arriving-NOW:
+  version: 1.0.0e
+  note: launch-day hotfix "e" on top of 1.0.0
+2017-10-01_HUGE-Performance-Boost-Patch:
+  version: 1.0.1
+  note: body says "Welcome to v1.0.1"
+2019-02-11_2.1.1-Bug-Fixes-Stability:
+  version: 2.1.2
+  note: links to the 2.1.2 forum notes posted the same day
+2019-11-26_Patch-v2.4-Arrived:
+  version: 2.4.0b
+  note: same day as the forum's V2.4b notes
+2020-01-28_Throne-Patch-v2.5-is-Live:
+  version: 2.5.0b
+  note: the forum calls this release v2.5b
+2021-04-26_Mini-Patch-Fixes-Vote-Start-Early-More:
+  version: 4.1.2
+  note: links to a follow-up post in the 4.1.2 forum thread
+2021-09-06_Stability-Fixes:
+  kind: patch
+  version: 5.0.1
+  note: the day before "Stability Patch v5.0.1b"
+2022-04-21_UI-revamp-we-would-never-forget-the-16th-player:
+  kind: patch
+  version: 6.0.10d
+  note: body starts with "v6.0.10d"
+
+# --- not patch notes ---------------------------------------------------------
+2020-10-10_v3.2b-Event-Moon-Festival-3rd-Anniversary:
+  kind: chronicle
+  type: Event
+  note: event post pointing at the 3.0.2 notes
+2016-06-18_kickstarter-greenlight-registration-date-announced-sep1_44:
+  kind: chronicle
+  type: News
+  note: '"registration" tripped the forum-housekeeping rule'
+2018-08-05_report-mod-system-v2-0-transparent-practices_71347:
+  kind: skip
+  type: forum housekeeping
+2017-08-28_changelog-history-link_2852:
+  kind: skip
+  type: forum housekeeping
