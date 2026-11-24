@@ -29,6 +29,9 @@ header nav {
   flex-wrap: wrap;
   gap: 0 1rem;
 }
+header form.quick { margin-left: auto; }
+header form.quick input { font: inherit; font-size: 0.9rem; max-width: 12rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
 footer {
   margin-top: 3rem;

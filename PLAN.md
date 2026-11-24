@@ -182,4 +182,4 @@ It should look like a site a fan put together by hand, something like an old wik
   - `/` focuses search.
   - Filters are kept in the URL, so a filtered search can be linked.
   - Every page except search works without JavaScript.
-- **Size.** Content pages ship no JavaScript. The search page loads its index when it opens.
+- **Size.** Content pages ship no JavaScript, apart from a few lines inline for the `/` shortcut. The header search box is a plain form, so it works without them. The search page loads its 22 KB script and its index (about 160 KB gzipped) when it opens.

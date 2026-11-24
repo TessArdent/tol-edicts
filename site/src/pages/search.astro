@@ -1,0 +1,93 @@
+---
+import Base from "../layouts/Base.astro";
+import { classes, patches, CATEGORIES, FACTIONS, patchLabel } from "../lib/data.js";
+
+const groups = [
+  ...FACTIONS.map((f) => ({ title: f, list: classes.filter((c) => c.faction === f) })),
+  { title: "Other", list: classes.filter((c) => !FACTIONS.includes(c.faction)) },
+].filter((g) => g.list.length);
+const formerNames = (c) => [...(c.formerNames || []).map((f) => f.name)];
+---
+<Base title="Search" description="Search Throne of Lies patch notes by text, class, faction and category." hideHeaderSearch>
+  <h1>Search</h1>
+  <form id="search" action="" method="get" role="search">
+    <p>
+      <label for="q">Text</label><br />
+      <input id="q" name="q" type="search" size="40" autocomplete="off" placeholder="e.g. bleed, Stand Guard, court fee" />
+    </p>
+
+    <details id="f-classes">
+      <summary>Classes <span class="muted" data-count="class"></span></summary>
+      {groups.map((g) => (
+        <fieldset>
+          <legend>{g.title}</legend>
+          {g.list.map((c) => (
+            <label class="check">
+              <input type="checkbox" name="class" value={c.name} />
+              {c.name}{formerNames(c).length > 0 && <span class="muted"> ({formerNames(c).join(", ")})</span>}
+            </label>
+          ))}
+        </fieldset>
+      ))}
+    </details>
+
+    <details id="f-more">
+      <summary>Faction, category, version <span class="muted" data-count="more"></span></summary>
+      <fieldset>
+        <legend>Faction</legend>
+        {FACTIONS.map((f) => <label class="check"><input type="checkbox" name="faction" value={f} /> {f}</label>)}
+      </fieldset>
+      <fieldset>
+        <legend>Category</legend>
+        {CATEGORIES.map((c) => <label class="check"><input type="checkbox" name="cat" value={c} /> {c}</label>)}
+      </fieldset>
+      <fieldset>
+        <legend>Versions</legend>
+        <label>From
+          <select name="from">
+            <option value="">first</option>
+            {patches.map((p) => <option value={p.id}>{patchLabel(p)}</option>)}
+          </select>
+        </label>
+        <label>to
+          <select name="to">
+            <option value="">latest</option>
+            {patches.map((p) => <option value={p.id}>{patchLabel(p)}</option>)}
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Source</legend>
+        <label class="check"><input type="radio" name="src" value="" checked /> Any</label>
+        <label class="check"><input type="radio" name="src" value="forum" /> Forum</label>
+        <label class="check"><input type="radio" name="src" value="steam" /> Steam</label>
+      </fieldset>
+    </details>
+
+    <p>
+      <label class="check wrap"><input type="checkbox" name="ann" value="1" /> Include announcements (devblogs, class reveals, news)</label>
+      · <button type="reset" id="clear">Clear</button>
+    </p>
+    <noscript><p>Search needs JavaScript. Without it, browse by <a href="../classes/">class</a> or <a href="../categories/">category</a>.</p></noscript>
+  </form>
+
+  <p id="status" class="meta" aria-live="polite">Loading the index…</p>
+  <ul id="results" class="changes"></ul>
+  <p><button id="more" type="button" hidden>Show more</button></p>
+
+  <script>
+    import { start } from "../scripts/search.js";
+    start();
+  </script>
+</Base>
+
+<style>
+  fieldset { border: 0; padding: 0; margin: 0.5rem 0 0.75rem; }
+  legend { font-weight: 600; padding: 0; }
+  label.check { display: inline-block; margin: 0 1rem 0.15rem 0; white-space: nowrap; }
+  label.check.wrap { white-space: normal; }
+  details { margin: 0.5rem 0; }
+  summary { cursor: pointer; }
+  input[type="search"] { max-width: 100%; font: inherit; }
+  mark { background: Mark; color: MarkText; }
+</style>

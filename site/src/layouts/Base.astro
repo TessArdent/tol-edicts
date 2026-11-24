@@ -5,8 +5,9 @@ import { url } from "../lib/data.js";
 interface Props {
   title: string;
   description?: string;
+  hideHeaderSearch?: boolean;   // the search page has its own box
 }
-const { title, description } = Astro.props;
+const { title, description, hideHeaderSearch = false } = Astro.props;
 const fullTitle = title === "Edicts" ? title : `${title} – Edicts`;
 ---
 <!doctype html>
@@ -26,9 +27,25 @@ const fullTitle = title === "Edicts" ? title : `${title} – Edicts`;
         <a href={url("/classes/")}>Classes</a>
         <a href={url("/categories/")}>Categories</a>
         <a href={url("/chronicle/")}>Chronicle</a>
+        <a href={url("/search/")}>Search</a>
         <a href={url("/about/")}>About</a>
       </nav>
+      {!hideHeaderSearch && (
+        <form class="quick" action={url("/search/")} method="get" role="search">
+          <label for="hq" class="sr">Search patch notes</label>
+          <input id="hq" name="q" type="search" placeholder="Search  ( / )" size="18" />
+        </form>
+      )}
     </header>
+    <script is:inline>
+      // "/" jumps to the search box, as on most reference sites.
+      document.addEventListener("keydown", (e) => {
+        if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (e.target.closest && e.target.closest("input, textarea, select, [contenteditable]")) return;
+        const box = document.getElementById("q") || document.getElementById("hq");
+        if (box) { e.preventDefault(); box.focus(); box.select(); }
+      });
+    </script>
     <main>
       <slot />
     </main>
