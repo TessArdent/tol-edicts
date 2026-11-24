@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import { patches, changesByPatch, listed, patchUrl, patchLabel, groupBy, url } from "../lib/data.js";
+
+const newestFirst = [...patches].reverse();
+const years = [...groupBy(newestFirst, (p) => p.date.slice(0, 4)).entries()];
+const total = patches.length;
+const first = patches[0].date.slice(0, 4);
+const last = patches[patches.length - 1].date.slice(0, 4);
+const count = (p) => (changesByPatch.get(p.id) || []).filter(listed).length;
+---
+<Base title="Edicts" description="Throne of Lies patch notes, searchable by class and category.">
+  <h1>Throne of Lies patch notes</h1>
+  <p>
+    {total} releases from {first} to {last}, collected from the official forum and Steam.
+    Each patch is split into individual changes, tagged by class and{" "}
+    <a href={url("/categories/")}>category</a>.
+  </p>
+  <p>
+    Years:{" "}
+    {years.map(([y], i) => <>{i > 0 && " · "}<a href={`#y${y}`}>{y}</a></>)}
+  </p>
+
+  {years.map(([year, list]) => (
+    <section>
+      <h2 id={`y${year}`}>{year}</h2>
+      <table>
+        <thead>
+          <tr><th>Version</th><th>Date</th><th>Title</th><th class="num hide-narrow">Changes</th></tr>
+        </thead>
+        <tbody>
+          {list.map((p) => (
+            <tr>
+              <td class="nowrap"><a href={patchUrl(p.id)}>{patchLabel(p)}</a></td>
+              <td class="nowrap">{p.date}</td>
+              <td>{p.title}</td>
+              <td class="num hide-narrow">{count(p)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</Base>

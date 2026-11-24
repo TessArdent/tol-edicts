@@ -1,0 +1,23 @@
+---
+import Base from "../../../layouts/Base.astro";
+import PatchHeader from "../../../components/PatchHeader.astro";
+import PrevNext from "../../../components/PrevNext.astro";
+import { patches, renderMarkdown, patchLabel } from "../../../lib/data.js";
+
+export function getStaticPaths() {
+  return patches.map((p) => ({ params: { id: p.id }, props: { patch: p } }));
+}
+const { patch } = Astro.props;
+---
+<Base title={`Patch ${patchLabel(patch)}`} description={patch.title}>
+  <PatchHeader patch={patch} view="notes" />
+  <article class="post" set:html={renderMarkdown(patch.markdown)} />
+  {patch.extraParts.map((part) => (
+    <article class="post">
+      <hr />
+      <h2>Posted again on {part.post.date}: “{part.post.title}”</h2>
+      <Fragment set:html={renderMarkdown(part.markdown)} />
+    </article>
+  ))}
+  <PrevNext patch={patch} />
+</Base>

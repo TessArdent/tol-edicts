@@ -1,0 +1,62 @@
+---
+import Base from "../../layouts/Base.astro";
+import ChangeList from "../../components/ChangeList.astro";
+import {
+  classes, changes, chronicle, listed, slug, classUrl, patchUrl, patchLabel,
+  byPatchNewestFirst, url,
+} from "../../lib/data.js";
+
+export function getStaticPaths() {
+  return classes.map((c) => ({ params: { slug: slug(c.name) }, props: { cls: c } }));
+}
+const { cls: c } = Astro.props;
+const mine = changes.filter((x) => listed(x) && x.classes.includes(c.name));
+const groups = byPatchNewestFirst(mine);
+const posts = chronicle.filter((p) => p.classes.includes(c.name));
+import V from "../../components/V.astro";
+---
+<Base title={c.name} description={`Every patch-note change to the ${c.name} in Throne of Lies.`}>
+  <h1>{c.name}</h1>
+  <dl class="facts">
+    <dt>Faction</dt>
+    <dd>
+      {c.faction === "Varies" ? "Varies per game (Good, Neutral or Evil King)" : c.faction || "Unknown"}
+      {c.verified === false && <span class="muted"> (not confirmed)</span>}
+    </dd>
+    {c.convertOf && <><dt>Convert of</dt><dd><a href={classUrl(c.convertOf)}>{c.convertOf}</a></dd></>}
+    {c.converts.length > 0 && (
+      <><dt>Converts to</dt><dd>{c.converts.map((n, i) => <>{i > 0 && ", "}<a href={classUrl(n)}>{n}</a></>)}</dd></>
+    )}
+    {c.history?.map((h) => (
+      <><dt>Before</dt><dd>
+        {h.faction}{h.convertOf && <> convert of <a href={classUrl(h.convertOf)}>{h.convertOf}</a></>}
+        {h.until ? <> until <V id={h.until} /></> : " (until an unknown patch)"}
+      </dd></>
+    ))}
+    {c.formerNames?.length > 0 && (
+      <><dt>Earlier name</dt><dd>{c.formerNames.map((f) => <>{f.name}{f.until ? <> (until <V id={f.until} />)</> : " (not confirmed)"} </>)}</dd></>
+    )}
+    {c.added && <><dt>Added</dt><dd><V id={c.added} /></dd></>}
+    {c.retired && <><dt>Retired</dt><dd><V id={c.retired} /></dd></>}
+    {c.firstSeen && <><dt>In the notes</dt><dd><V id={c.firstSeen} /> to <V id={c.lastSeen} />, {c.changeCount} changes</dd></>}
+    {c.abilities?.length > 0 && <><dt>Abilities</dt><dd>{c.abilities.join(", ")}</dd></>}
+  </dl>
+
+  {posts.length > 0 && (
+    <section>
+      <h2>Announcements</h2>
+      <ul>
+        {posts.map((p) => <li>{p.date} <a href={url(`/chronicle/${p.id}/`)}>{p.title}</a></li>)}
+      </ul>
+    </section>
+  )}
+
+  <h2>Changes</h2>
+  {groups.length === 0 && <p>None found.</p>}
+  {groups.map((g) => (
+    <section>
+      <h3><a href={patchUrl(g.patch.id)}>{patchLabel(g.patch)}</a> <span class="muted">{g.patch.date}</span></h3>
+      <ChangeList items={g.items} omitClass={c.name} />
+    </section>
+  ))}
+</Base>

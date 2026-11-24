@@ -1,0 +1,27 @@
+---
+// A list of change items with their class and category links.
+import { renderItem, classUrl, categoryUrl } from "../lib/data.js";
+
+interface Props {
+  items: any[];
+  omitClass?: string;       // on a class page, don't repeat that class
+  omitCategory?: boolean;   // on a category page, don't repeat the category
+}
+const { items, omitClass, omitCategory = false } = Astro.props;
+---
+<ul class="changes">
+  {items.map((c) => {
+    const cls = c.classes.filter((n) => n !== omitClass);
+    return (
+      <li>
+        {c.kind === "explanation" && <span class="kind">Dev note: </span>}
+        <Fragment set:html={renderItem(c.text)} />
+        {" "}
+        <span class="tags">
+          {cls.map((n) => <>[<a href={classUrl(n)}>{n}</a>] </>)}
+          {!omitCategory && <>[<a href={categoryUrl(c.category)}>{c.category}</a>]</>}
+        </span>
+      </li>
+    );
+  })}
+</ul>

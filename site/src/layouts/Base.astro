@@ -1,0 +1,40 @@
+---
+import "../styles.css";
+import { url } from "../lib/data.js";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const fullTitle = title === "Edicts" ? title : `${title} – Edicts`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+  </head>
+  <body>
+    <header>
+      <a class="name" href={url("/")}>Edicts</a>
+      <nav>
+        <a href={url("/")}>Patches</a>
+        <a href={url("/classes/")}>Classes</a>
+        <a href={url("/categories/")}>Categories</a>
+        <a href={url("/chronicle/")}>Chronicle</a>
+        <a href={url("/about/")}>About</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      Unofficial archive of Throne of Lies patch notes. The notes are Imperium42's;
+      every page links to the original post. <a href={url("/about/")}>About</a>
+    </footer>
+  </body>
+</html>

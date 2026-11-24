@@ -1,0 +1,35 @@
+---
+import Base from "../../../layouts/Base.astro";
+import PatchHeader from "../../../components/PatchHeader.astro";
+import PrevNext from "../../../components/PrevNext.astro";
+import ChangeList from "../../../components/ChangeList.astro";
+import { patches, changesByPatch, listed, CATEGORIES, categoryUrl, patchLabel, patchUrl } from "../../../lib/data.js";
+
+export function getStaticPaths() {
+  return patches.map((p) => ({ params: { id: p.id }, props: { patch: p } }));
+}
+const { patch } = Astro.props;
+const all = changesByPatch.get(patch.id) || [];
+const shown = all.filter(listed);
+const hidden = all.length - shown.length;
+const groups = CATEGORIES
+  .map((cat) => ({ cat, items: shown.filter((c) => c.category === cat) }))
+  .filter((g) => g.items.length);
+---
+<Base title={`Patch ${patchLabel(patch)}: changes`} description={patch.title}>
+  <PatchHeader patch={patch} view="changes" />
+  {groups.length === 0 && <p>No individual changes were found in this post. See the <a href={patchUrl(patch.id)}>notes</a>.</p>}
+  {groups.map((g) => (
+    <section>
+      <h2><a href={categoryUrl(g.cat)}>{g.cat}</a></h2>
+      <ChangeList items={g.items} omitCategory />
+    </section>
+  ))}
+  {hidden > 0 && (
+    <p class="muted">
+      {hidden} {hidden === 1 ? "line" : "lines"} of introduction, summary or forum replies
+      {hidden === 1 ? "is" : "are"} only in the <a href={patchUrl(patch.id)}>notes</a>.
+    </p>
+  )}
+  <PrevNext patch={patch} suffix="changes/" />
+</Base>

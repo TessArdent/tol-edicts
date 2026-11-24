@@ -1,0 +1,29 @@
+---
+// Title, sources and the Notes / Changes tabs shared by both patch views.
+import { patchUrl, patchLabel } from "../lib/data.js";
+
+interface Props { patch: any; view: "notes" | "changes"; }
+const { patch: p, view } = Astro.props;
+
+const sourceName = (s) => (s.source === "forum" ? "forum post" : "Steam post");
+const links = [p.primary, ...p.alsoPosted, ...p.extraParts.map((e) => e.post)];
+const hrefOf = (s) => s.original || s.steam;
+---
+<h1>Patch {patchLabel(p)}</h1>
+<p class="meta">
+  {p.date} · “{p.title}”{p.versions.length > 1 && <> · covers {p.versions.map((v) => `v${v}`).join(", ")}</>}
+  <br />
+  Original:{" "}
+  {links.map((s, i) => (
+    <>
+      {i > 0 && ", "}
+      <a href={hrefOf(s)}>{sourceName(s)}</a>{s.date !== p.date && ` (${s.date})`}
+      {s.archive && <> (<a href={s.archive}>archived copy</a>)</>}
+    </>
+  ))}
+</p>
+<p class="tabs">
+  <a href={patchUrl(p.id)} aria-current={view === "notes" ? "page" : undefined}>Notes</a>
+  {" · "}
+  <a href={`${patchUrl(p.id)}changes/`} aria-current={view === "changes" ? "page" : undefined}>Changes by category</a>
+</p>

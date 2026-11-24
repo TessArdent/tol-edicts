@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import { classes, FACTIONS, classUrl, patchUrl, url } from "../lib/data.js";
+
+const groups = [
+  ...FACTIONS.map((f) => ({ title: f, list: classes.filter((c) => c.faction === f) })),
+  { title: "Faction varies", list: classes.filter((c) => c.faction === "Varies") },
+  { title: "Faction unknown", list: classes.filter((c) => !c.faction) },
+].filter((g) => g.list.length);
+const unconfirmed = classes.filter((c) => c.verified === false).length;
+---
+<Base title="Classes" description="Every Throne of Lies class and its patch history.">
+  <h1>Classes</h1>
+  <p>
+    {classes.length} classes, grouped by faction. Converts are listed with the class they come from.
+    Factions marked * haven't been confirmed yet ({unconfirmed} classes); see <a href={url("/about/")}>About</a>.
+  </p>
+  {groups.map((g) => (
+    <section>
+      <h2>{g.title}</h2>
+      <table>
+        <thead>
+          <tr><th>Class</th><th class="hide-narrow">Related</th><th class="num">Changes</th><th class="hide-narrow">First</th><th class="hide-narrow">Last</th></tr>
+        </thead>
+        <tbody>
+          {g.list.map((c) => (
+            <tr>
+              <td><a href={classUrl(c.name)}>{c.name}</a>{c.verified === false && "*"}{c.retired && <span class="muted"> (retired)</span>}</td>
+              <td class="hide-narrow">
+                {c.convertOf && <>convert of <a href={classUrl(c.convertOf)}>{c.convertOf}</a></>}
+                {c.converts.length > 0 && <>converts to {c.converts.map((n, i) => <>{i > 0 && ", "}<a href={classUrl(n)}>{n}</a></>)}</>}
+                {c.formerNames?.length > 0 && <span class="muted"> was {c.formerNames.map((f) => f.name).join(", ")}</span>}
+              </td>
+              <td class="num">{c.changeCount}</td>
+              <td class="hide-narrow">{c.firstSeen && <a href={patchUrl(c.firstSeen)}>v{c.firstSeen}</a>}</td>
+              <td class="hide-narrow">{c.lastSeen && <a href={patchUrl(c.lastSeen)}>v{c.lastSeen}</a>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</Base>

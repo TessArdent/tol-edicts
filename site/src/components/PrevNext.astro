@@ -1,0 +1,13 @@
+---
+import { patches, patchUrl, patchLabel } from "../lib/data.js";
+
+interface Props { patch: any; suffix?: string; }
+const { patch, suffix = "" } = Astro.props;
+const i = patches.findIndex((p) => p.id === patch.id);
+const prev = patches[i - 1];
+const next = patches[i + 1];
+---
+<nav class="prevnext">
+  <span>{prev && <a href={patchUrl(prev.id) + suffix}>← {patchLabel(prev)}</a>}</span>
+  <span>{next && <a href={patchUrl(next.id) + suffix}>{patchLabel(next)} →</a>}</span>
+</nav>

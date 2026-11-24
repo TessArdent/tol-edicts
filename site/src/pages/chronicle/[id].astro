@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import { chronicle, renderMarkdown, classUrl, url } from "../../lib/data.js";
+
+export function getStaticPaths() {
+  return chronicle.map((p) => ({ params: { id: p.id }, props: { post: p } }));
+}
+const { post: p } = Astro.props;
+const sources = [p.post, ...(p.alsoPosted || [])];
+const name = (s) => (s.source === "forum" ? "forum post" : "Steam post");
+---
+<Base title={p.title} description={`${p.type}, ${p.date}`}>
+  <p class="meta"><a href={url("/chronicle/")}>Chronicle</a> · {p.type}</p>
+  <h1>{p.title}</h1>
+  <p class="meta">
+    {p.date}{p.post.author && ` · ${p.post.author}`} · Original:{" "}
+    {sources.map((s, i) => (
+      <>{i > 0 && ", "}<a href={s.original || s.steam}>{name(s)}</a>{s.archive && <> (<a href={s.archive}>archived copy</a>)</>}</>
+    ))}
+    {p.classes.length > 0 && <><br />Classes: {p.classes.map((n, i) => <>{i > 0 && ", "}<a href={classUrl(n)}>{n}</a></>)}</>}
+  </p>
+  <article class="post" set:html={renderMarkdown(p.markdown)} />
+</Base>

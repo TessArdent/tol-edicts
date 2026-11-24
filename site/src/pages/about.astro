@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import { classes, classUrl, url, REPO_URL } from "../lib/data.js";
+
+const unconfirmed = classes.filter((c) => c.verified === false);
+const unknown = classes.filter((c) => !c.faction);
+---
+<Base title="About" description="Where Edicts' patch notes come from and how they're tagged.">
+  <h1>About</h1>
+  <p>
+    Edicts puts the patch notes for Throne of Lies, Imperium42's social deduction game,
+    in one place where you can read them by patch, by class or by category. It's a fan
+    project with no connection to Imperium42, and the notes themselves are theirs.
+  </p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>
+      The official forum (forum.imperium42.com, later forum.throneoflies.com), read from the{" "}
+      <a href="https://fol-archive.netlify.app/">Forum of Lies archive</a>. It covers the
+      alpha in 2016 up to v5.0.2 in September 2021.
+    </li>
+    <li>The game's announcements on Steam, the only source after September 2021.</li>
+  </ul>
+  <p>
+    When a release was posted in both places, the forum text is shown and the Steam post
+    is linked beside it. Announcements that aren't patch notes are in the{" "}
+    <a href={url("/chronicle/")}>Chronicle</a>.
+  </p>
+
+  <h2>How changes are tagged</h2>
+  <p>
+    Each post is split into its bullet points. A change is tagged with a class when it sits
+    under that class's heading, or names the class or one of its abilities. It gets one{" "}
+    <a href={url("/categories/")}>category</a> from its heading or wording. A script does this
+    with a list of hand corrections, so a few tags will be wrong. Introductions, summaries
+    and forum replies are left out of the lists but are still in each patch's notes.
+  </p>
+  {REPO_URL && <p>Spotted a wrong tag?{" "}<a href={`${REPO_URL}/issues/new?template=wrong-tag.yml`}>Report it on GitHub</a>.</p>}
+
+  <h2>Factions not confirmed yet</h2>
+  <p>
+    The notes rarely say which faction a class belongs to. These are best guesses and may be wrong:
+    {unconfirmed.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}.
+    {unknown.length > 0 && <> No faction is known for {unknown.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}.</>}
+  </p>
+</Base>

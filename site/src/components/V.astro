@@ -1,0 +1,6 @@
+---
+// Link to a patch by id, shown as "v1.0.2".
+import { patchUrl } from "../lib/data.js";
+const { id } = Astro.props;
+---
+<a href={patchUrl(id)}>v{id}</a>

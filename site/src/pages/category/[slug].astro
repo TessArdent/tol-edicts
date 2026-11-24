@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import ChangeList from "../../components/ChangeList.astro";
+import { changes, listed, CATEGORIES, slug, patchUrl, patchLabel, byPatchNewestFirst } from "../../lib/data.js";
+
+export function getStaticPaths() {
+  return CATEGORIES.map((cat) => ({ params: { slug: slug(cat) }, props: { cat } }));
+}
+const { cat } = Astro.props;
+// Dev Notes is mostly notes and replies, so it lists those as well.
+const mine = changes.filter((c) => c.category === cat && (listed(c) || cat === "Dev Notes"));
+const groups = byPatchNewestFirst(mine);
+---
+<Base title={cat} description={`Throne of Lies patch-note changes filed under ${cat}.`}>
+  <h1>{cat}</h1>
+  <p class="meta">{mine.length} changes in {groups.length} patches, newest first.</p>
+  {groups.map((g) => (
+    <section>
+      <h3><a href={patchUrl(g.patch.id)}>{patchLabel(g.patch)}</a> <span class="muted">{g.patch.date}</span></h3>
+      <ChangeList items={g.items} omitCategory />
+    </section>
+  ))}
+</Base>

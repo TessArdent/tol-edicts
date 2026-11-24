@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { changes, listed, CATEGORIES, categoryUrl } from "../lib/data.js";
+
+const about = {
+  "Class Balance": "Changes to a particular class or its abilities.",
+  "Game-wide": "Rules, modes, factions, voting, gold and anything else not tied to one class.",
+  "Quality of Life / UI": "Interface, text, tutorials, sounds and visuals.",
+  "Bug Fixes": "Fixes, including fixes to a single class.",
+  "Store & Cosmetics": "Armours, weapons, portraits, titles and other items.",
+  "Events": "Seasonal events, anniversaries and Double GP days.",
+  "Technical": "Servers, stability, performance, security and platform support.",
+  "Dev Notes": "The developers' explanations, introductions and forum replies.",
+};
+const n = (cat) => changes.filter((c) => c.category === cat && (listed(c) || cat === "Dev Notes")).length;
+---
+<Base title="Categories" description="Throne of Lies patch-note changes by category.">
+  <h1>Categories</h1>
+  <p>Every change is filed under one category. Class-specific bug fixes are under Bug Fixes and still show up on the class's page.</p>
+  <table>
+    <thead><tr><th>Category</th><th class="num">Changes</th><th class="hide-narrow">What goes here</th></tr></thead>
+    <tbody>
+      {CATEGORIES.map((cat) => (
+        <tr>
+          <td class="nowrap"><a href={categoryUrl(cat)}>{cat}</a></td>
+          <td class="num">{n(cat)}</td>
+          <td class="hide-narrow">{about[cat]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Base>

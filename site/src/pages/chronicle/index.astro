@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import { chronicle, groupBy, url } from "../../lib/data.js";
+
+const TYPES = ["Devblog", "Class Reveal", "Preview", "Event", "News"];
+const newestFirst = [...chronicle].reverse();
+const years = [...groupBy(newestFirst, (p) => p.date.slice(0, 4)).entries()];
+const counts = TYPES.map((t) => [t, chronicle.filter((p) => p.type === t).length]);
+---
+<Base title="Chronicle" description="Throne of Lies devblogs, class reveals and announcements.">
+  <h1>Chronicle</h1>
+  <p>
+    Announcements that aren't patch notes: devblogs, class reveals, events and news,
+    from 2016 to 2022. {counts.map(([t, n], i) => <>{i > 0 && ", "}{n} {t.toLowerCase()}{n === 1 || t === "News" ? "" : "s"}</>)}.
+  </p>
+  {years.map(([year, list]) => (
+    <section>
+      <h2>{year}</h2>
+      <table>
+        <tbody>
+          {list.map((p) => (
+            <tr>
+              <td class="nowrap">{p.date}</td>
+              <td class="nowrap muted hide-narrow">{p.type}</td>
+              <td><a href={url(`/chronicle/${p.id}/`)}>{p.title}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</Base>
