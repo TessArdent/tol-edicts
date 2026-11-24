@@ -35,6 +35,8 @@ npm run build      # output in site/dist
 npm run preview    # http://localhost:4321/tol-edicts/
 ```
 
+Images in patch notes are rendered as `[image]` links to the original files (see `renderMarkdown` in `site/src/lib/data.js`); Chronicle pages show them inline.
+
 ## Fixing a wrong tag
 
 Find the change in `data/changes.json` and copy its `key`, then add a line to `pipeline/overrides.yml`:

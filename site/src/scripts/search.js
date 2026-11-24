@@ -24,18 +24,10 @@ export async function start() {
     return;
   }
 
-  // One document per change, then one per announcement.
-  const docs = [];
-  data.items.forEach((it, i) => docs.push({
-    id: i, kind: "item", it,
-    text: it.t,
-    names: it.c.map((c) => [data.classes[c].n, ...data.classes[c].a].join(" ")).join(" "),
-  }));
-  data.posts.forEach((p, i) => docs.push({
-    id: data.items.length + i, kind: "post", p,
-    text: `${p.n} ${p.t}`,
-    names: p.c.map((c) => [data.classes[c].n, ...data.classes[c].a].join(" ")).join(" "),
-  }));
+  // One document per change; announcements are appended when first needed.
+  const namesOf = (classIdx) => classIdx.map((c) => [data.classes[c].n, ...data.classes[c].a].join(" ")).join(" ");
+  const docs = data.items.map((it, i) => ({ id: i, kind: "item", it, text: it.t, names: namesOf(it.c) }));
+  const toIndex = (list) => list.map(({ id, text, names }) => ({ id, text, names }));
   const ms = new MiniSearch({
     fields: ["text", "names"],
     storeFields: [],
@@ -47,7 +39,19 @@ export async function start() {
       boost: { names: 2 },
     },
   });
-  ms.addAll(docs.map(({ id, text, names }) => ({ id, text, names })));
+  // Indexing in small chunks keeps the page responsive while it runs.
+  let indexed = ms.addAllAsync(toIndex(docs), { chunkSize: 250 });
+  let posts = null;
+  function loadPosts() {
+    posts ??= fetch(`${base}/search-posts.json`).then((r) => r.json()).then((list) => {
+      const extra = list.map((p, i) => ({
+        id: data.items.length + i, kind: "post", p, text: `${p.n} ${p.t}`, names: namesOf(p.c),
+      }));
+      docs.push(...extra);
+      indexed = indexed.then(() => ms.addAllAsync(toIndex(extra), { chunkSize: 250 }));
+    });
+    return posts;
+  }
 
   const patchPos = new Map(data.patches.map((p, i) => [p.id, i]));
   const classPos = new Map(data.classes.map((c, i) => [c.n, i]));
@@ -88,10 +92,19 @@ export async function start() {
 
   const dateOf = (doc) => (doc.kind === "post" ? doc.p.d : data.patches[doc.it.p].d);
 
-  function run() {
+  let runId = 0;
+  async function run() {
+    const id = ++runId;
     const s = state();
     writeUrl(form);
     countFilters(form);
+    // Filters alone don't need the text index, so those results show at once.
+    if (s.ann) await loadPosts();
+    if (s.q) {
+      if (!ms.documentCount || docs.length > ms.documentCount) status.textContent = "Preparing search…";
+      await indexed;
+    }
+    if (id !== runId) return;        // a newer run has started
     let hits;
     if (s.q) {
       hits = ms.search(s.q, { filter: (r) => keep(docs[r.id], s) })

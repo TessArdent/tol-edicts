@@ -19,5 +19,5 @@ const name = (s) => (s.source === "forum" ? "forum post" : "Steam post");
     ))}
     {p.classes.length > 0 && <><br />Classes: {p.classes.map((n, i) => <>{i > 0 && ", "}<a href={classUrl(n)}>{n}</a></>)}</>}
   </p>
-  <article class="post" set:html={renderMarkdown(p.markdown)} />
+  <article class="post" set:html={renderMarkdown(p.markdown, { images: "inline" })} />
 </Base>

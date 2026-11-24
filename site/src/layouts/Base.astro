@@ -33,7 +33,7 @@ const fullTitle = title === "Edicts" ? title : `${title} – Edicts`;
       {!hideHeaderSearch && (
         <form class="quick" action={url("/search/")} method="get" role="search">
           <label for="hq" class="sr">Search patch notes</label>
-          <input id="hq" name="q" type="search" placeholder="Search  ( / )" size="18" />
+          <input id="hq" name="q" type="search" placeholder="Search" title="Press / to jump here" size="18" />
         </form>
       )}
     </header>

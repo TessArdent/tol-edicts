@@ -1,0 +1,9 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/data.js";
+---
+<Base title="Not found">
+  <h1>Not found</h1>
+  <p>There's no page at this address. It may have moved when the patch list was rebuilt.</p>
+  <p>Try the <a href={url("/")}>list of patches</a> or <a href={url("/search/")}>search</a>.</p>
+</Base>

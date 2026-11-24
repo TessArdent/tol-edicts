@@ -1,5 +1,15 @@
 :root {
   color-scheme: light dark;
+  /* the browser's own page colours, stated so contrast checkers see them */
+  background-color: Canvas;
+  color: CanvasText;
+}
+
+/* The browser's own dark-mode link blue is too dim on a dark page. These are
+   the usual light-on-dark link colours; light mode keeps the defaults. */
+@media (prefers-color-scheme: dark) {
+  a:link { color: #8ab4f8; }
+  a:visited { color: #c58af9; }
 }
 
 body {
@@ -29,6 +39,7 @@ header nav {
   flex-wrap: wrap;
   gap: 0 1rem;
 }
+header nav a, header .name { display: inline-block; padding: 0.3rem 0; }
 header form.quick { margin-left: auto; }
 header form.quick input { font: inherit; font-size: 0.9rem; max-width: 12rem; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
@@ -58,6 +69,7 @@ ul.changes > li { margin: 0.3rem 0; }
 ul.changes > li > ul, ul.changes > li > ol { margin: 0.2rem 0; }
 .tags { font-size: 0.85rem; }
 .tags a { color: GrayText; white-space: nowrap; }
+a.img { font-size: 0.9rem; }
 .kind { font-size: 0.85rem; color: GrayText; font-style: italic; }
 
 .tabs { margin: 0.5rem 0 1rem; }

@@ -64,19 +64,29 @@ export function patchLabel(p) {
 }
 
 // --- Markdown ----------------------------------------------------------------
+// Patch notes are read for their text: their images (mostly large GIF banners,
+// some on hosts that no longer work) become plain links. Chronicle posts such
+// as class reveals keep their pictures inline, loaded lazily.
 const md = new MarkdownIt({ html: false, linkify: true, breaks: false });
 const defaultImage = md.renderer.rules.image;
 md.renderer.rules.image = (tokens, idx, options, env, self) => {
-  tokens[idx].attrSet("loading", "lazy");
-  return defaultImage(tokens, idx, options, env, self);
+  const t = tokens[idx];
+  if (env?.images === "inline") {
+    t.attrSet("loading", "lazy");
+    t.attrSet("decoding", "async");
+    return defaultImage(tokens, idx, options, env, self);
+  }
+  const alt = self.renderInlineAsText(t.children || [], options, env).trim();
+  const label = alt && !/^image( \(\d+\))?$|^$/i.test(alt) && !/\.\w{3,4}$/.test(alt) ? `image: ${alt}` : "image";
+  return `<a class="img" href="${md.utils.escapeHtml(t.attrGet("src") || "")}">[${md.utils.escapeHtml(label)}]</a>`;
 };
 
-export const renderMarkdown = (text) => md.render(text || "");
+export const renderMarkdown = (text, { images = "link" } = {}) => md.render(text || "", { images });
 
 /** One change item: a single paragraph is rendered inline, without <p>. */
 export function renderItem(text) {
   const clean = (text || "").replace(/^\s*[•·▪‣]\s*/, "");   // bullet glyphs typed as text
-  const html = md.render(clean).trim();
+  const html = md.render(clean, { images: "link" }).trim();
   const single = html.match(/^<p>([\s\S]*)<\/p>$/);
   return single && !single[1].includes("<p>") ? single[1] : html;
 }
