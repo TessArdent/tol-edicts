@@ -27,7 +27,7 @@ classes:
   notes: "Faction is decided per game: 1.0.17 'Starting King now has a 60% chance to be Good, 20% to be Neutral, and 20% to be Evil.'"
 - name: Prince
   faction: Blue Dragon
-  verified: false
+  notes: "User confirmed (TO-2 follow-up)."
 - name: Princess
   faction: Blue Dragon
   abilities: [Wisp, Flirt]
@@ -112,7 +112,7 @@ classes:
   convertOf: Noble
   formerNames: [{name: Traitor Noble, until: null}]
   abilities: [Intrigue]
-  notes: "User decision (TO-2). 'Traitor Noble' (2016 reveal) is assumed to be its earlier name: unconfirmed."
+  notes: "User decision (TO-2). 'Traitor Noble' (2016 reveal) is its earlier name (user confirmed); it was renamed before the earliest patch notes here (0.8.24)."
 - name: Marshal
   faction: Unseen
   convertOf: Sheriff
@@ -234,26 +234,24 @@ classes:
   notes: "Neutral. User confirmed (TO-2 follow-up)."
 - name: Reaper
   faction: Neutral
-  verified: false
   abilities: [Icy Touch, Gather Darkness]
+  notes: "User confirmed (TO-2 follow-up)."
 - name: Possessor
   faction: Neutral
-  verified: false
   abilities: [Puppet Strings, Facelift, Mind Control]
+  notes: "User confirmed (TO-2 follow-up)."
 - name: Psycho King
   faction: Neutral
-  verified: false
   added: 1.0.13
   abilities: [Fatal Guards]
-  notes: "1.0.13: 'Added a new King that the Reaper & Possessor become called the Psycho King.'"
+  notes: "1.0.13: 'Added a new King that the Reaper & Possessor become called the Psycho King.' User confirmed (TO-2 follow-up)."
 - name: Fool
   faction: Neutral
-  verified: false
+  notes: "User confirmed (TO-2 follow-up)."
 - name: Scorned
   faction: Neutral
-  verified: false
   abilities: [Incriminate]
-  notes: "0.8.29: 'New class added to Casual Mode called The Scorned.'"
+  notes: "0.8.29: 'New class added to Casual Mode called The Scorned.' User confirmed (TO-2 follow-up)."
 
 # --- unknown -----------------------------------------------------------------
 - name: Soulcatcher

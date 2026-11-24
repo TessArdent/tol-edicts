@@ -13,7 +13,7 @@ const unconfirmed = classes.filter((c) => c.verified === false).length;
   <h1>Classes</h1>
   <p>
     {classes.length} classes, grouped by faction. Converts are listed with the class they come from.
-    Factions marked * haven't been confirmed yet ({unconfirmed} classes); see <a href={url("/about/")}>About</a>.
+    {unconfirmed > 0 && <>Factions marked * haven't been confirmed yet ({unconfirmed} classes); see <a href={url("/about/")}>About</a>.</>}
   </p>
   {groups.map((g) => (
     <section>

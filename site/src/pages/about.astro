@@ -43,10 +43,12 @@ const unknown = classes.filter((c) => !c.faction);
   </p>
   {REPO_URL && <p>Spotted a wrong tag?{" "}<a href={`${REPO_URL}/issues/new?template=wrong-tag.yml`}>Report it on GitHub</a>.</p>}
 
-  <h2>Factions not confirmed yet</h2>
+  <h2>Factions</h2>
   <p>
-    The notes rarely say which faction a class belongs to. These are best guesses and may be wrong:
-    {unconfirmed.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}.
-    {unknown.length > 0 && <> No faction is known for {unknown.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}.</>}
+    The notes rarely say which faction a class belongs to, so the factions and convert
+    links come from players who know the game, checked against the notes where they say.
+    {unconfirmed.length > 0 && <> These are still best guesses and may be wrong:{" "}
+      {unconfirmed.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}.</>}
+    {unknown.length > 0 && <> No faction is known for {unknown.map((c, i) => <>{i > 0 && ", "}<a href={classUrl(c.name)}>{c.name}</a></>)}, which appears only in the late notes.</>}
   </p>
 </Base>

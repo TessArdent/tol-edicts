@@ -34,7 +34,7 @@ import V from "../../components/V.astro";
       </dd></>
     ))}
     {c.formerNames?.length > 0 && (
-      <><dt>Earlier name</dt><dd>{c.formerNames.map((f) => <>{f.name}{f.until ? <> (until <V id={f.until} />)</> : " (not confirmed)"} </>)}</dd></>
+      <><dt>Earlier name</dt><dd>{c.formerNames.map((f) => <>{f.name}{f.until ? <> (until <V id={f.until} />)</> : " (before the first patch notes)"} </>)}</dd></>
     )}
     {c.added && <><dt>Added</dt><dd><V id={c.added} /></dd></>}
     {c.retired && <><dt>Retired</dt><dd><V id={c.retired} /></dd></>}

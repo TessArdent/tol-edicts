@@ -42,7 +42,7 @@ Chronicle types: News 52, Event 16, Class Reveal 11, Devblog 8, Preview 3
 - Patches whose item count differs from the bullet count by more than 5%: 0
 - Classes with no changes: none
 - Classes without a faction: 1 of 52 (Artist)
-- Classes whose faction or convert link is an unconfirmed guess: 6 (Prince, Reaper, Possessor, Psycho King, Fool, Scorned)
+- Classes whose faction or convert link is an unconfirmed guess: 0
 
 ## Merges
 
