@@ -72,6 +72,13 @@ def collect_items(patch):
     return unique, bullets
 
 
+def is_mostly_cjk(text: str) -> bool:
+    """Chinese-only sections repeat the English notes; they're kept as notes."""
+    letters = [ch for ch in text if ch.isalpha()]
+    cjk = sum(1 for ch in letters if "㐀" <= ch <= "鿿")
+    return bool(letters) and cjk / len(letters) > 0.3
+
+
 def _words(text: str) -> set[str]:
     return {w for w in re.findall(r"[a-z0-9']+", text.lower()) if len(w) > 2}
 
@@ -95,6 +102,33 @@ def demote_unmatched_summaries(tagged) -> None:
             tags["kind"] = "change"
 
 
+def class_summary(classes: list[dict], changes: list[dict], patches: list[dict]) -> list[dict]:
+    """classes.yml plus what the data says: first/last patch mentioned, counts,
+    and the converts of each class (the reverse of convertOf)."""
+    order = {p["id"]: i for i, p in enumerate(patches)}
+    seen: dict[str, list[str]] = {}
+    counts: Counter = Counter()
+    for c in changes:
+        if c["kind"] in ("change", "explanation"):
+            for cls in c["classes"]:
+                counts[cls] += 1
+                seen.setdefault(cls, []).append(c["patch"])
+    out = []
+    for c in classes:
+        rec = {k: v for k, v in c.items() if k != "notes"}
+        rec["verified"] = c.get("verified", True)
+        rec["notes"] = c.get("notes", "")
+        ps = sorted(set(seen.get(c["name"], [])), key=order.get)
+        rec["firstSeen"], rec["lastSeen"] = (ps[0], ps[-1]) if ps else (None, None)
+        rec["changeCount"] = counts[c["name"]]
+        rec["converts"] = [o["name"] for o in classes if o.get("convertOf") == c["name"]]
+        for k in ("added", "retired"):
+            if k in rec and rec[k] is not None:
+                rec[k] = str(rec[k])
+        out.append(rec)
+    return out
+
+
 def post_ref(p) -> dict:
     return {"source": p.source, "key": p.key, "title": p.title, "date": p.date,
             "author": p.author, **{k: v for k, v in p.links.items() if v}}
@@ -103,8 +137,9 @@ def post_ref(p) -> dict:
 def main() -> int:
     post_overrides = load_yaml("posts.yml")
     item_overrides = load_yaml("overrides.yml")
-    classes = load_yaml("classes.yml")
-    tagger = Tagger(classes, load_yaml("categories.yml"))
+    class_data = load_yaml("classes.yml")
+    classes = class_data["classes"]
+    tagger = Tagger(class_data, load_yaml("categories.yml"))
 
     posts = load_posts(ROOT / "changelogs")
     known = {p.key for p in posts}
@@ -120,10 +155,11 @@ def main() -> int:
     for patch in patches:
         post = patch.primary
         items, bullets = collect_items(patch)
-        tagged = [(it, tagger.tag(it.section, it.plain)) for it in items]
-        for it, tags in tagged:
-            if it.is_reply_text or it.origin == "intro-note":
-                tags["kind"] = "note"
+        tagged = []
+        for it in items:
+            note = it.is_reply_text or it.origin == "intro-note" or is_mostly_cjk(it.plain)
+            tagged.append((it, tagger.tag(it.section, it.plain, patch.version,
+                                          kind="note" if note else None)))
         demote_unmatched_summaries(tagged)
         seen: Counter = Counter()
         n_list = kept = 0
@@ -143,6 +179,8 @@ def main() -> int:
                     tags["category"], tags["categorySource"] = ov["category"], "override"
                 if "kind" in ov:
                     tags["kind"] = ov["kind"]
+                    if ov["kind"] in ("note", "explanation") and "category" not in ov:
+                        tags["category"], tags["categorySource"] = "Dev Notes", "override"
                 tags["confidence"] = "override"
             if it.origin == "list":
                 n_list += 1
@@ -180,16 +218,18 @@ def main() -> int:
     for ov in set(item_overrides) - used_overrides:
         problems.append(f"overrides.yml: no item with key {ov}")
 
+    classes_out = class_summary(classes, change_records, patch_records)
+
     chronicle = []
     for p in sorted((p for p in posts if p.kind == "chronicle"), key=lambda p: p.datetime):
-        cls, _ = tagger.mentions(p.title)
+        cls, _ = tagger.mentions(p.title, None)
         chronicle.append({"id": p.key, "type": p.type, "date": p.date, "title": p.title,
                           "classes": cls, "post": post_ref(p), "markdown": p.body})
     chronicle = _dedupe_chronicle(chronicle)
 
     DATA.mkdir(exist_ok=True)
     for name, obj in (("patches", patch_records), ("changes", change_records),
-                      ("chronicle", chronicle), ("classes", classes)):
+                      ("chronicle", chronicle), ("classes", classes_out)):
         (DATA / f"{name}.json").write_text(
             json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 

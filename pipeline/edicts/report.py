@@ -73,7 +73,11 @@ def write_report(path: Path, *, posts, patches, changes, chronicle, classes,
       f"{BULLET_TOLERANCE:.0%}: {len(mismatches)}")
     L.extend(f"  - {pid}: {b} bullets, {i} list items" for pid, b, i in mismatches)
     w(f"- Classes with no changes: {', '.join(unused) or 'none'}")
-    w(f"- Classes without a faction: {len(no_faction)} of {len(classes)}")
+    w(f"- Classes without a faction: {len(no_faction)} of {len(classes)}"
+      + (f" ({', '.join(no_faction)})" if no_faction else ""))
+    unverified = [c["name"] for c in classes if c.get("verified") is False]
+    w(f"- Classes whose faction or convert link is an unconfirmed guess: {len(unverified)}"
+      + (f" ({', '.join(unverified)})" if unverified else ""))
     w("")
 
     w("## Merges\n")

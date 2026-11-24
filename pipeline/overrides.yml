@@ -1,11 +1,41 @@
 # Per-item corrections, keyed by item key (see changes.json "key").
 # Keys are a hash of the patch id and the item's plain text, so they survive
-# re-runs as long as the text doesn't change.
+# re-runs as long as the text doesn't change. The build warns about keys that
+# no longer match anything.
 #
 # Any of: classes (replaces), addClasses, category, kind, drop: true
-#
-# Example:
-# 3f9a1c2b7d:
-#   classes: [Hunter]
-#   category: Class Balance
-{}
+
+# --- developer remarks, not changes -----------------------------------------
+d4bf5af634: {kind: note}    # 1.1.5 "Both empowers essentially do the same thing…" (quoted question)
+e039806e1c: {kind: note}    # 2.0.2 "Some updates are difficult to test…"
+08c0febef8: {kind: note}    # 2.3.0a "This is an extension of the v2.3 patch…"
+cf8b80b64c: {kind: note, category: Technical}   # 2.3.0b runtime requirement advice
+b21230f7c6: {kind: note}    # 2.5.1 "Now merged above…"
+6e04ec0689: {kind: note}    # 2.6.0b "See addendums below for hotfixes."
+c1225d99f6: {kind: note}    # 4.0.0a F2P announcement header
+fac755f598: {kind: note}    # 4.0.0a "I am excited to announce…"
+d8bcec8eed: {kind: note}    # 4.0.0a "Patch Status? LIVE (Dec 21)!"
+86536fb4c7: {kind: note}    # 4.0.0a "When is F2P (UPDATED)? LIVE…"
+27ed9edc80: {kind: note}    # 4.0.0a "Pending new key art/logo…"
+
+# --- fragments left over from formatting -------------------------------------
+fba3d3b527: {drop: true}    # 3.0.2 "僅中文 (Click to Expand)"
+8d6f7d7719: {drop: true}    # 4.0.0a '")'
+b63e905a36: {drop: true}    # 6.0.8 "Detail"
+f7b79ab15d: {drop: true}    # 6.0.10i "Click this area"
+
+# --- items and cosmetics named without a keyword -----------------------------
+b09ca3a1fe: {category: Store & Cosmetics}   # 7.0.3 "(New) Consumable items"
+7b7b62a614: {category: Store & Cosmetics}   # 7.1.1 "Neon Dynastic Demonic"
+122d588487: {category: Store & Cosmetics}   # 7.1.1 "Neon Demonic Axe"
+f1bcc71921: {category: Store & Cosmetics}   # 7.2.0 "Grim Reaper" (outfit, not the class)
+25778b3fee: {category: Store & Cosmetics}   # 7.2.0 "Reaper's Scythe"
+32afc02c3b: {category: Store & Cosmetics}   # 2.5.0b "Kingslayer II promo should stop"
+
+# --- other -------------------------------------------------------------------
+738e03a901: {category: Technical}   # 0.9.9 "We ditched a crappy data system…"
+7dfedf3293: {kind: note}            # 2.6.0b "(More below @ v2.6a + v2.6b addendums)"
+2e36595e52: {kind: change, category: Class Balance, classes: [Mystic]}   # 1.0.8 reply: "Misdirect was removed." (Psychic, now Mystic)
+542fa4acc1: {category: Technical}   # 2.5.3 "Upgraded to Unity 2020 … may be some unexpected bugs"
+dec6964c1c: {category: Quality of Life / UI}   # 2.6.0b 'Removed "drawn" stat.'
+d75261b92e: {category: Class Balance, classes: [Apostle, Illusionist]}   # 2.1.0 "Frame and Mind Warp mechanic changes."

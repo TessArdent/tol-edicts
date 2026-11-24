@@ -1,7 +1,10 @@
 # Category rules. Regexes are case-insensitive.
 #
 # headings: matched against section headings, innermost first.
-# text:     used only when no heading decided it. Tried in file order.
+# text:     used only when no heading decided it.
+# Both are tried in file order, except Game-wide, whose rules are broad and
+# always go last. Under a generic Game-wide heading ("General"), a specific
+# text match (Technical, Quality of Life / UI, ...) wins.
 #
 # Headings that name only classes ("## Hunter") are handled separately and
 # never reach these rules.
@@ -17,6 +20,8 @@ categories:
       - '^\s*(fixed|fixes|fix)\b'
       - '\bbug(s|ged)?\b'
       - '\bno longer (crash|freez|break)'
+      - '\b(has|have|is|are|was|were) (now )?(been )?fixed\b'
+      - '\bfixes\b'
   Store & Cosmetics:
     headings:
       - '\bstore\b'
@@ -30,8 +35,13 @@ categories:
       - '\brewards?\b'
       - '\bpurchases?\b'
       - '\bart\b'
+      - '\bweapons?\b'
+      - '\bconsumables?\b'
     text:
-      - '\b(armou?rs?|portraits?|skins?|outfits?|cosmetics?|store|shop|pets?|emotes?)\b'
+      - '\b(armou?rs?|portraits?|skins?|outfits?|cosmetics?|store|shop|pets?|emotes?|avatars?)\b'
+      - '\bnew (items?|weapons?|titles?|series)\b'
+      - '\b(buy(ing)?|purchas\w+) (gold|gp|gems?)\b'
+      - '\bredeem\b'
   Events:
     headings:
       - '\bevents?\b'
@@ -43,7 +53,7 @@ categories:
       - '\bholiday\b'
       - '\bdouble (gp|gold)\b'
     text:
-      - '\b(event|festival|halloween|snowcrest|anniversary|holiday|double (gp|gold))\b'
+      - '\b(events?|festival|halloween|snowcrest|anniversary|holiday|double (gp|gold)|christmas|pumpkins?|valentine|lunar new year|year of (the )?\w+|birthday|present drop)\b'
   Technical:
     headings:
       - '\bstability\b'
@@ -56,7 +66,7 @@ categories:
       - '\bunity\b'
       - '\bwindows\b'
     text:
-      - '\b(servers?|stability|security|performance|fps|memory|disconnect(s|ion|ed)?|lag|load times?|unity|windows|anti-?hack\w*|crash(es|ed)?)\b'
+      - '\b(servers?|stability|security|performance|fps|memory|disconnect(s|ion|ed)?|lag|load times?|unity|windows|win ?7|mac|linux|runtime|anti-?hack\w*|anti-?spam|crash(es|ed)?|vulnerab\w*|gdpr|privacy|reconnect\w*|name filters?|test realm)\b'
   Quality of Life / UI:
     headings:
       - '\bquality of life\b'
@@ -78,10 +88,23 @@ categories:
       - '\baudio\b'
       - '\bsounds?\b'
       - '\bsettings\b'
+      - '\bicons?\b'
+      - '\bportraits? revamp\b'
     text:
-      - '\b(ui|button|tooltips?|menus?|settings?|options?|fonts?|icons?|tutorial|glossary|notifications?|camera|animations?|sounds?|music|hotkeys?|shortcuts?|scroll\w*|journal|deathnote|lobby|chat box|chat window|player list)\b'
+      - '\b(ui|button|tooltips?|menus?|settings?|options?|fonts?|icons?|tutorial|glossary|notifications?|camera|animations?|sounds?|sfx|vfx|music|hotkeys?|shortcuts?|scroll\w*|journal|logbook|deathnote|lobby|chat box|chat window|player list|class cards?|guide ?book|guide|feedback text|description|tooltip|text|typo|wording|reworded|clarified|translat\w*|locali[sz]\w*|chinese|friends?|invite\w*|account|profile|stats|voice|screen|panel|display\w*|visual\w*|colou?rs?|highlight\w*|portrait position|qol|quality of life|cursor|draggables?|resiz\w*|popups?|how to play|tabs?|recordings?|private notes|credits)\b'
   Dev Notes:
+    text:
+      - '^(we|i)(''ve| have| will|''ll| are| plan| hope| know| want)\b'
+      - '\b(dev ?blog|roadmap|thanks? (to|for)|shout-?out|patch notes|let me know|@ ?ping|forgot to write|discord|status:|short url)\b'
+      - '\b(we|i)(''re|''m|’re|’m) (still |about |excited|done)'
     headings:
+      - '\bdev ?blog\b'
+      - '\bdev team\b'
+      - '\bjoin(s|ed)? the team\b'
+      - '\baftermath\b'
+      - '\bheads up\b'
+      - '\blooking for the last\b'
+      - '\bstatus\b'
       - '\bdev(eloper)? ?notes?\b'
       - '\bexplain'
       - '\bfaq\b'
@@ -101,12 +124,26 @@ categories:
       - '\bchanges\b'
       - '\bgold\b'
       - '\bmatchmak'
+      - '\bmvp\b'
+      - '\bgame over\b'
+      - '\bend screen\b'
+      - '\bqueued messaging\b'
+      - '\bregistry fee\b'
+      - '\bhappy hour battles\b'
+      - '\brole rework\b'
+      - '\bpossible role\b'
+    text:
+      - '\b(game|games|mode|modes|trial|vot(e|es|ed|ing)|execution|factions?|rotations?|quests?|matchmak\w*|queu\w*|gold|gp|gems?|currency|court fees?|rooms?|host\w*|whispers?|wins?|winning|spawn\w*|night|day|phase|round|timers?|duel|mvp|ranked|players?|accus\w*|king|guards?|jail\w*|dead|death|kill\w*|abilit(y|ies)|abils?|class(es)?|roles?|movement|walk\w*|referral|referee|code of conduct|evil|enemy|balance|times|names?|happy hour battles|registry fee)\b'
   Class Balance:
     headings:
       - '\bbalance\b'
       - '\bclass(es)?\b'
       - '\bbuffs?\b'
       - '\bnerfs?\b'
+      - '\babilit(y|ies)\b'
+    text:
+      - '^[A-Z][\w''’ ]{2,30}\s*[:：]\s*\S+\s*(->|→)\s*\S+'   # "Tornado : 3 -> 2"
+      - '\b(charges?|uses?|cooldown)\b.*\b(\d+|∞)\s*(->|→|to)\s*(\d+|∞)\b'
 
 # Kinds, from the innermost heading that matches. Default is "change".
 #   summary:     overview lists that repeat changes detailed further down

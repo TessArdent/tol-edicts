@@ -50,7 +50,7 @@ class Item:
     def is_reply_text(self) -> bool:
         """Prose in a later reply: usually discussion, not a change."""
         return (self.follow_up is not None and not self.follow_up.get("rerelease")
-                and self.origin != "list")
+                and self.origin not in ("list", "bullet-line"))
 
 
 def plain_text(markdown: str) -> str:
@@ -62,7 +62,14 @@ def plain_text(markdown: str) -> str:
     s = re.sub(r"(^|\n)\s*>\s?", r"\1", s)
     s = re.sub(r"[*_~`#]+", "", s)
     s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"^[•·▪‣]\s*", "", s.strip())    # bullet glyphs typed as text
     return s.strip()
+
+
+def is_lead_in(text: str) -> bool:
+    """A short line introducing what follows rather than a change itself."""
+    t = text.strip()
+    return (len(t) <= 60 and t.endswith((":", "："))) or bool(re.fullmatch(r"\[[^\]]{1,40}\]", t))
 
 
 def _heading_text(markdown: str) -> str:
@@ -131,8 +138,15 @@ def segment(markdown: str) -> list[Item]:
         text = plain_text(md)
         if not text or _IMAGE_ONLY.match(md) or _LINK_ONLY.match(md) or _LINKED_IMAGE.match(md):
             return
+        if is_lead_in(text) and "\n" not in md:
+            # "Detail:", "Some abilities changes in Quick mode:", "[Possible Role]".
+            # Unlike a bold bullet, a lead-in with nothing after it is dropped.
+            push(LABEL_LEVEL, text.strip("[]:： "))
+            return
         if origin != "list" and _SIGN_OFF.search(text) and len(text) < 160:
             return
+        if origin in ("line", "paragraph") and re.match(r"\s*[•·▪‣]", md):
+            origin = "bullet-line"      # "• Fixed …" typed as text, still a list entry
         pending.clear()
         items.append(Item(section(), md, origin, follow_up, len(items), text))
 
@@ -275,7 +289,8 @@ def count_top_level_bullets(markdown: str) -> int:
                 rest = re.sub(r"^\s*(>\s*)*([-*+]|\d+[.)])\s*", "", span[0]).strip()
                 one_line = len(span) == 1
                 if not (one_line and (_IMAGE_ONLY.match(rest) or _LINK_ONLY.match(rest)
-                                      or _LINKED_IMAGE.match(rest) or _BOLD_ONLY.match(rest))):
+                                      or _LINKED_IMAGE.match(rest) or _BOLD_ONLY.match(rest)
+                                      or is_lead_in(plain_text(rest)))):
                     n += 1
             open_items += 1
         elif tok.type == "list_item_close":

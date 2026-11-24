@@ -146,3 +146,22 @@ def test_bullet_count_matches_items():
     for md in (ERA_2017, ERA_2020, ERA_2022):
         listed = [i for i in segment(md) if i.origin == "list"]
         assert count_top_level_bullets(md) == len(listed)
+
+
+def test_lead_in_lines_become_labels():
+    md = "Detail :\n\n- First change.\n\nSome abilities changes in Quick mode:\n\n- Tornado : 3 -> 2\n"
+    items = segment(md)
+    assert [(i.section, i.plain) for i in items] == [
+        (["Detail"], "First change."),
+        (["Some abilities changes in Quick mode"], "Tornado : 3 -> 2"),
+    ]
+
+
+def test_bullet_glyph_lines_in_replies_are_changes():
+    md = ("### Follow-up #2 by í42-Xblade (2020-08-12)\n\n"
+          "• Fixed Cult Leader Eradicate being unable to target king.\n"
+          "• Fixed the end screen.\n")
+    items = segment(md)
+    assert [i.plain for i in items] == ["Fixed Cult Leader Eradicate being unable to target king.",
+                                       "Fixed the end screen."]
+    assert not any(i.is_reply_text for i in items)

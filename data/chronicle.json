@@ -230,7 +230,7 @@
   "title": "Introducing The Noble (+The Traitor Noble)",
   "classes": [
    "Noble",
-   "Traitor Noble"
+   "Aristocrat"
   ],
   "post": {
    "source": "forum",
@@ -1532,9 +1532,7 @@
   "type": "News",
   "date": "2022-12-19",
   "title": "Paid to free announcement + Free title (Doom Knight) for joined players",
-  "classes": [
-   "Knight"
-  ],
+  "classes": [],
   "post": {
    "source": "steam",
    "key": "2022-12-19_Paid-to-free-announcement-Free-title-Doom-Knight-for-joined-players",

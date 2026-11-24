@@ -13,4 +13,4 @@ from edicts.tagging import Tagger  # noqa: E402
 @pytest.fixture(scope="session")
 def tagger() -> Tagger:
     load = lambda n: yaml.safe_load((PIPE / n).read_text(encoding="utf-8"))  # noqa: E731
-    return Tagger(load("classes.yml"), load("categories.yml"))
+    return Tagger(load("classes.yml"), load("categories.yml"))   # classes.yml is a dict
