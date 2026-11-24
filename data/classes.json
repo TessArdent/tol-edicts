@@ -40,12 +40,12 @@
  {
   "name": "Princess",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Wisp",
    "Flirt"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.25",
   "lastSeen": "3.0.0",
   "changeCount": 23,
@@ -88,13 +88,13 @@
  {
   "name": "Sheriff",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Scout",
    "Surveillance",
    "Posse Comitatus"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.9.6",
   "lastSeen": "7.3.2b",
   "changeCount": 30,
@@ -105,12 +105,12 @@
  {
   "name": "Paladin",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Test Faith",
    "Smite"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.28",
   "lastSeen": "7.0.1",
   "changeCount": 24,
@@ -140,53 +140,36 @@
  {
   "name": "Physician",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Inoculate"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.24",
   "lastSeen": "6.0.2",
   "changeCount": 36,
-  "converts": []
+  "converts": [
+   "Herbalist"
+  ]
  },
  {
   "name": "Priest",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Bind Soul"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.25",
   "lastSeen": "1.0.8d",
   "changeCount": 17,
-  "converts": []
- },
- {
-  "name": "Alchemist",
-  "faction": "Blue Dragon",
-  "verified": false,
-  "abilities": [
-   "Stoneskin",
-   "Stoneskin Potion",
-   "Coagulate",
-   "Concoct Potion",
-   "Crimson Potion",
-   "Emerald Potion",
-   "Truth Potion",
-   "Tar Potion"
-  ],
-  "notes": "",
-  "firstSeen": "0.8.27",
-  "lastSeen": "4.1.2",
-  "changeCount": 45,
-  "converts": []
+  "converts": [
+   "Soulcatcher"
+  ]
  },
  {
   "name": "Court Wizard",
   "faction": "Blue Dragon",
-  "verified": false,
   "aliases": [
    "CW"
   ],
@@ -198,7 +181,8 @@
    "Icy Veins",
    "Tornado"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.24",
   "lastSeen": "6.0.2",
   "changeCount": 56,
@@ -209,7 +193,6 @@
  {
   "name": "Mystic",
   "faction": "Blue Dragon",
-  "verified": false,
   "formerNames": [
    {
     "name": "Psychic",
@@ -222,7 +205,8 @@
    "Mind Link",
    "Call the Dead"
   ],
-  "notes": "1.1.0: Psychic 'Renamed to Mystic.'",
+  "verified": true,
+  "notes": "1.1.0: Psychic 'Renamed to Mystic.' Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.9.0",
   "lastSeen": "7.2.1",
   "changeCount": 53,
@@ -233,7 +217,6 @@
  {
   "name": "Observer",
   "faction": "Blue Dragon",
-  "verified": false,
   "aliases": [
    "Obs"
   ],
@@ -243,7 +226,8 @@
    "Window Peak",
    "Overlook"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.9.0",
   "lastSeen": "6.0.9a",
   "changeCount": 24,
@@ -272,7 +256,6 @@
  {
   "name": "Butler",
   "faction": "Blue Dragon",
-  "verified": false,
   "abilities": [
    "Poisoned Wine",
    "Concentrated Wine",
@@ -281,7 +264,8 @@
    "Black Wine",
    "Nightshade Wine"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted.",
   "firstSeen": "0.8.24",
   "lastSeen": "6.0.2",
   "changeCount": 37,
@@ -364,8 +348,8 @@
   "name": "Enforcer",
   "faction": "Unseen",
   "convertOf": "Knight",
-  "verified": false,
-  "notes": "Revealed with the Knight on 2016-11-03 ('Introducing The Knight (+The Enforcer)').",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.8.24",
   "lastSeen": "4.0.1",
   "changeCount": 9,
@@ -395,12 +379,12 @@
   "name": "Marshal",
   "faction": "Unseen",
   "convertOf": "Sheriff",
-  "verified": false,
   "abilities": [
    "Snoop",
    "Probe"
   ],
-  "notes": "0.9.13: 'Sheriff is converted into the Marshal.' The faction is not stated.",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.13",
   "lastSeen": "5.0.0",
   "changeCount": 25,
@@ -427,11 +411,11 @@
   "name": "Sage",
   "faction": "Unseen",
   "convertOf": "Court Wizard",
-  "verified": false,
   "abilities": [
    "Tornado"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.8",
   "lastSeen": "6.0.2",
   "changeCount": 16,
@@ -441,11 +425,11 @@
   "name": "Illusionist",
   "faction": "Unseen",
   "convertOf": "Mystic",
-  "verified": false,
   "abilities": [
    "Mental Blur"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.0",
   "lastSeen": "4.0.0a",
   "changeCount": 19,
@@ -455,11 +439,11 @@
   "name": "Duchess",
   "faction": "Unseen",
   "convertOf": "Princess",
-  "verified": false,
   "abilities": [
    "Dark Wisp"
   ],
-  "notes": "",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.0",
   "lastSeen": "2.4.0a",
   "changeCount": 5,
@@ -481,8 +465,8 @@
   "name": "Servant",
   "faction": "Unseen",
   "convertOf": "Butler",
-  "verified": false,
-  "notes": "Shares Butler's abilities ('The Butler/Servant throws a party', 0.9.2): convert link inferred, faction unconfirmed.",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.2",
   "lastSeen": "2.1.0",
   "changeCount": 6,
@@ -492,11 +476,11 @@
   "name": "Nightwatch",
   "faction": "Unseen",
   "convertOf": "Observer",
-  "verified": false,
   "abilities": [
    "Watch Carefully"
   ],
-  "notes": "Shares Observer's Follow (0.9.2 'Now has the new Follow. (See Observer)'): convert link inferred, faction unconfirmed.",
+  "verified": true,
+  "notes": "Unseen convert. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.9.2",
   "lastSeen": "2.4.0a",
   "changeCount": 4,
@@ -613,8 +597,8 @@
   "name": "Seeker",
   "faction": "Cult",
   "convertOf": "Paladin",
-  "verified": false,
-  "notes": "0.9.16: 'Cult Leader will now spawn with either a Invoker, Ritualist, or Seeker.' 0.9.13: 'Paladin is converted into the Seeker.' That it's the Cult (not Unseen) convert is inferred.",
+  "verified": true,
+  "notes": "Paladin converts into the Seeker (0.9.13; user recalls the same). Cult: 0.9.16 'Cult Leader will now spawn with either a Invoker, Ritualist, or Seeker.'",
   "firstSeen": "0.9.4",
   "lastSeen": "5.0.0",
   "changeCount": 13,
@@ -622,13 +606,14 @@
  },
  {
   "name": "Herbalist",
-  "faction": null,
+  "faction": "Unseen",
+  "convertOf": "Physician",
   "abilities": [
    "Defile",
    "Exhume"
   ],
   "verified": true,
-  "notes": "Faction unknown.",
+  "notes": "Unseen convert of the Physician. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.8.24",
   "lastSeen": "6.0.2",
   "changeCount": 28,
@@ -732,6 +717,26 @@
   "converts": []
  },
  {
+  "name": "Alchemist",
+  "faction": "Neutral",
+  "abilities": [
+   "Stoneskin",
+   "Stoneskin Potion",
+   "Coagulate",
+   "Concoct Potion",
+   "Crimson Potion",
+   "Emerald Potion",
+   "Truth Potion",
+   "Tar Potion"
+  ],
+  "verified": true,
+  "notes": "Neutral. User confirmed (TO-2 follow-up).",
+  "firstSeen": "0.8.27",
+  "lastSeen": "4.1.2",
+  "changeCount": 45,
+  "converts": []
+ },
+ {
   "name": "Reaper",
   "faction": "Neutral",
   "verified": false,
@@ -799,9 +804,10 @@
  },
  {
   "name": "Soulcatcher",
-  "faction": null,
+  "faction": "Unseen",
+  "convertOf": "Priest",
   "verified": true,
-  "notes": "Faction unknown; only mentioned in early 0.8 notes.",
+  "notes": "Unseen convert of the Priest. User confirmed (TO-2 follow-up).",
   "firstSeen": "0.8.25",
   "lastSeen": "0.9.2",
   "changeCount": 2,
@@ -809,10 +815,10 @@
  },
  {
   "name": "Death Knight",
-  "faction": null,
+  "faction": "Blue Dragon",
   "added": "1.0.8",
   "verified": true,
-  "notes": "1.0.8: 'Reanimate a dead Blue Dragon player as a Death Knight.' Faction unknown.",
+  "notes": "What a Blue Dragon player became when revived by a Physician, while the Physician had that ability (1.0.8: 'Reanimate a dead Blue Dragon player as a Death Knight'). User confirmed (TO-2 follow-up).",
   "firstSeen": "1.0.8",
   "lastSeen": "1.0.18",
   "changeCount": 9,
@@ -823,7 +829,7 @@
   "faction": null,
   "added": "7.3.1",
   "verified": true,
-  "notes": "7.3.1: 'New role - Artist'. Faction unknown.",
+  "notes": "Only in the 7.3.1 notes (December 2022): 'New role - Artist'. Faction unknown; the user hadn't heard of it, so it was probably short-lived.",
   "firstSeen": "7.3.1",
   "lastSeen": "7.3.1",
   "changeCount": 4,

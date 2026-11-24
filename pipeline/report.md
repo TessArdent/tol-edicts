@@ -41,8 +41,8 @@ Chronicle types: News 52, Event 16, Class Reveal 11, Devblog 8, Preview 3
 - Versions on more than one record: none
 - Patches whose item count differs from the bullet count by more than 5%: 0
 - Classes with no changes: none
-- Classes without a faction: 4 of 52 (Herbalist, Soulcatcher, Death Knight, Artist)
-- Classes whose faction or convert link is an unconfirmed guess: 24 (Prince, Princess, Sheriff, Paladin, Physician, Priest, Alchemist, Court Wizard, Mystic, Observer, Butler, Enforcer, Marshal, Sage, Illusionist, Duchess, Servant, Nightwatch, Seeker, Reaper, Possessor, Psycho King, Fool, Scorned)
+- Classes without a faction: 1 of 52 (Artist)
+- Classes whose faction or convert link is an unconfirmed guess: 6 (Prince, Reaper, Possessor, Psycho King, Fool, Scorned)
 
 ## Merges
 
@@ -144,7 +144,6 @@ Chronicle types: News 52, Event 16, Class Reveal 11, Devblog 8, Preview 3
 | Hunter | 63 |
 | Physician | 36 |
 | Priest | 18 |
-| Alchemist | 46 |
 | Court Wizard | 63 |
 | Mystic | 57 |
 | Observer | 24 |
@@ -178,6 +177,7 @@ Chronicle types: News 52, Event 16, Class Reveal 11, Devblog 8, Preview 3
 | Inquisitor | 51 |
 | Sorcerer | 51 |
 | Pretender | 27 |
+| Alchemist | 46 |
 | Reaper | 53 |
 | Possessor | 62 |
 | Psycho King | 12 |

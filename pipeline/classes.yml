@@ -30,8 +30,8 @@ classes:
   verified: false
 - name: Princess
   faction: Blue Dragon
-  verified: false
   abilities: [Wisp, Flirt]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Knight
   faction: Blue Dragon
   abilities: [Cold Steel]
@@ -42,12 +42,12 @@ classes:
   notes: User decision (TO-2).
 - name: Sheriff
   faction: Blue Dragon
-  verified: false
   abilities: [Scout, Surveillance, Posse Comitatus]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Paladin
   faction: Blue Dragon
-  verified: false
   abilities: [Test Faith, Smite]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Hunter
   faction: Blue Dragon
   added: 0.9.3
@@ -55,33 +55,27 @@ classes:
   notes: "0.9.3: 'The Hunter is a unique Blue Dragon Killer class.'"
 - name: Physician
   faction: Blue Dragon
-  verified: false
   abilities: [Inoculate]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Priest
   faction: Blue Dragon
-  verified: false
   abilities: [Bind Soul]
-- name: Alchemist
-  faction: Blue Dragon
-  verified: false
-  abilities: [Stoneskin, Stoneskin Potion, Coagulate, Concoct Potion, Crimson Potion,
-              Emerald Potion, Truth Potion, Tar Potion]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Court Wizard
   faction: Blue Dragon
-  verified: false
   aliases: [CW]
   abilities: [Magical Barrier, Ice Ward, Empower, Clear Mind, Icy Veins, Tornado]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Mystic
   faction: Blue Dragon
-  verified: false
   formerNames: [{name: Psychic, until: 1.1.0}]
   abilities: [Conduit, Link Minds, Mind Link, Call the Dead]
-  notes: "1.1.0: Psychic 'Renamed to Mystic.'"
+  notes: "1.1.0: Psychic 'Renamed to Mystic.' Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Observer
   faction: Blue Dragon
-  verified: false
   aliases: [Obs]
   abilities: [Distant Follow, Window Peek, Window Peak, Overlook]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Drunk
   faction: Blue Dragon
   added: 0.9.8
@@ -89,8 +83,8 @@ classes:
   notes: "0.9.8: 'Added new BD Offensive class the Drunk and their converted class the Alcoholic.'"
 - name: Butler
   faction: Blue Dragon
-  verified: false
   abilities: [Poisoned Wine, Concentrated Wine, Serve Wine, Throw Party, Black Wine, Nightshade Wine]
+  notes: "Blue Dragon: it has a confirmed convert, and only Blue Dragon players are converted."
 - name: Maid
   faction: Blue Dragon
   added: 2.0.0
@@ -112,8 +106,7 @@ classes:
 - name: Enforcer
   faction: Unseen
   convertOf: Knight
-  verified: false
-  notes: "Revealed with the Knight on 2016-11-03 ('Introducing The Knight (+The Enforcer)')."
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Aristocrat
   faction: Unseen
   convertOf: Noble
@@ -123,9 +116,8 @@ classes:
 - name: Marshal
   faction: Unseen
   convertOf: Sheriff
-  verified: false
   abilities: [Snoop, Probe]
-  notes: "0.9.13: 'Sheriff is converted into the Marshal.' The faction is not stated."
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Poacher
   faction: Unseen
   convertOf: Hunter
@@ -135,18 +127,18 @@ classes:
 - name: Sage
   faction: Unseen
   convertOf: Court Wizard
-  verified: false
   abilities: [Tornado]
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Illusionist
   faction: Unseen
   convertOf: Mystic
-  verified: false
   abilities: [Mental Blur]
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Duchess
   faction: Unseen
   convertOf: Princess
-  verified: false
   abilities: [Dark Wisp]
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Alcoholic
   faction: Unseen
   convertOf: Drunk
@@ -154,14 +146,12 @@ classes:
 - name: Servant
   faction: Unseen
   convertOf: Butler
-  verified: false
-  notes: "Shares Butler's abilities ('The Butler/Servant throws a party', 0.9.2): convert link inferred, faction unconfirmed."
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Nightwatch
   faction: Unseen
   convertOf: Observer
-  verified: false
   abilities: [Watch Carefully]
-  notes: "Shares Observer's Follow (0.9.2 'Now has the new Follow. (See Observer)'): convert link inferred, faction unconfirmed."
+  notes: "Unseen convert. User confirmed (TO-2 follow-up)."
 - name: Handmaiden
   faction: Unseen
   convertOf: Maid
@@ -198,12 +188,12 @@ classes:
 - name: Seeker
   faction: Cult
   convertOf: Paladin
-  verified: false
-  notes: "0.9.16: 'Cult Leader will now spawn with either a Invoker, Ritualist, or Seeker.' 0.9.13: 'Paladin is converted into the Seeker.' That it's the Cult (not Unseen) convert is inferred."
+  notes: "Paladin converts into the Seeker (0.9.13; user recalls the same). Cult: 0.9.16 'Cult Leader will now spawn with either a Invoker, Ritualist, or Seeker.'"
 - name: Herbalist
-  faction: null
+  faction: Unseen
+  convertOf: Physician
   abilities: [Defile, Exhume]
-  notes: Faction unknown.
+  notes: "Unseen convert of the Physician. User confirmed (TO-2 follow-up)."
 
 # --- Neutral -----------------------------------------------------------------
 - name: Mercenary
@@ -237,6 +227,11 @@ classes:
   aliases: [Pretender King]
   abilities: [Kinslayer, Ballot Mixing, Family Matter, Family Matters, Blood Test]
   notes: "2018-08-17 reveal: 'Neutral Offensive'. Retired in 2.5b ('Class Retired: Pretender')."
+- name: Alchemist
+  faction: Neutral
+  abilities: [Stoneskin, Stoneskin Potion, Coagulate, Concoct Potion, Crimson Potion,
+              Emerald Potion, Truth Potion, Tar Potion]
+  notes: "Neutral. User confirmed (TO-2 follow-up)."
 - name: Reaper
   faction: Neutral
   verified: false
@@ -262,16 +257,17 @@ classes:
 
 # --- unknown -----------------------------------------------------------------
 - name: Soulcatcher
-  faction: null
-  notes: Faction unknown; only mentioned in early 0.8 notes.
+  faction: Unseen
+  convertOf: Priest
+  notes: "Unseen convert of the Priest. User confirmed (TO-2 follow-up)."
 - name: Death Knight
-  faction: null
+  faction: Blue Dragon
   added: 1.0.8
-  notes: "1.0.8: 'Reanimate a dead Blue Dragon player as a Death Knight.' Faction unknown."
+  notes: "What a Blue Dragon player became when revived by a Physician, while the Physician had that ability (1.0.8: 'Reanimate a dead Blue Dragon player as a Death Knight'). User confirmed (TO-2 follow-up)."
 - name: Artist
   faction: null
   added: 7.3.1
-  notes: "7.3.1: 'New role - Artist'. Faction unknown."
+  notes: "Only in the 7.3.1 notes (December 2022): 'New role - Artist'. Faction unknown; the user hadn't heard of it, so it was probably short-lived."
 
 # Phrases that contain a class or ability name but aren't about it. They are
 # matched first and then ignored.

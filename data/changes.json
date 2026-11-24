@@ -100,7 +100,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -121,7 +123,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -142,7 +146,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -163,7 +169,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -184,7 +192,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -851,6 +861,7 @@
    "Prince"
   ],
   "factions": [
+   "Unseen",
    "Blue Dragon"
   ],
   "category": "Class Balance",
@@ -1328,7 +1339,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -1395,7 +1406,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Bug Fixes",
   "categorySource": "heading",
@@ -4380,7 +4391,9 @@
   "classes": [
    "Soulcatcher"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -4825,7 +4838,8 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Blue Dragon",
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -6561,7 +6575,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -6582,7 +6598,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -6603,7 +6621,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -6859,7 +6879,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -7601,7 +7623,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -9043,7 +9065,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -9066,7 +9088,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -9634,6 +9656,7 @@
    "Physician"
   ],
   "factions": [
+   "Unseen",
    "Blue Dragon"
   ],
   "category": "Class Balance",
@@ -11566,7 +11589,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -11589,7 +11612,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -14424,7 +14447,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -14447,7 +14470,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -14911,7 +14934,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -15153,7 +15176,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -15602,7 +15627,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -15623,7 +15650,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -15644,7 +15673,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -15665,7 +15696,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -16032,7 +16065,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "mention",
   "kind": "change",
@@ -16656,7 +16691,9 @@
   "classes": [
    "Death Knight"
   ],
-  "factions": [],
+  "factions": [
+   "Blue Dragon"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -18067,7 +18104,8 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Blue Dragon",
+   "Neutral"
   ],
   "category": "Bug Fixes",
   "categorySource": "heading",
@@ -18540,7 +18578,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Bug Fixes",
   "categorySource": "heading",
   "kind": "change",
@@ -18911,7 +18951,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -19359,7 +19401,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -20051,7 +20095,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Bug Fixes",
   "categorySource": "heading",
   "kind": "change",
@@ -25386,7 +25432,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -25621,7 +25667,8 @@
    "Herbalist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Blue Dragon",
+   "Unseen"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -25690,7 +25737,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Dev Notes",
   "categorySource": "kind",
   "kind": "note",
@@ -25986,7 +26035,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Game-wide",
   "categorySource": "heading",
   "kind": "change",
@@ -26430,7 +26481,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26455,7 +26506,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26480,7 +26531,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26505,7 +26556,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26530,7 +26581,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26555,7 +26606,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -26580,7 +26631,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -27675,7 +27726,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -27699,7 +27750,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -27723,7 +27774,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -27747,7 +27798,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -27771,7 +27822,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -28342,7 +28393,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -28367,7 +28418,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Bug Fixes",
   "categorySource": "text",
@@ -29301,7 +29352,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Bug Fixes",
   "categorySource": "heading",
@@ -29731,7 +29782,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -29756,7 +29807,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -29781,7 +29832,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -31010,7 +31061,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "mention",
@@ -31243,7 +31294,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "mention",
@@ -32304,7 +32355,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32329,7 +32380,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32354,7 +32405,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32379,7 +32430,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32404,7 +32455,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32429,7 +32480,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32454,7 +32505,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -32941,7 +32992,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -34867,7 +34918,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Quality of Life / UI",
   "categorySource": "heading",
   "kind": "change",
@@ -40184,7 +40237,8 @@
    "Herbalist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Blue Dragon",
+   "Unseen"
   ],
   "category": "Quality of Life / UI",
   "categorySource": "heading",
@@ -43004,7 +43058,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Bug Fixes",
   "categorySource": "heading",
@@ -43437,7 +43491,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Quality of Life / UI",
   "categorySource": "text",
   "kind": "change",
@@ -43591,7 +43647,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Quality of Life / UI",
   "categorySource": "text",
@@ -44416,6 +44472,7 @@
    "Possessor"
   ],
   "factions": [
+   "Unseen",
    "Neutral"
   ],
   "category": "Bug Fixes",
@@ -47954,7 +48011,6 @@
    "Mercenary"
   ],
   "factions": [
-   "Blue Dragon",
    "Neutral"
   ],
   "category": "Bug Fixes",
@@ -48664,6 +48720,7 @@
    "Scorned"
   ],
   "factions": [
+   "Unseen",
    "Neutral"
   ],
   "category": "Bug Fixes",
@@ -49616,7 +49673,8 @@
   "factions": [
    "Neutral",
    "Blue Dragon",
-   "Cult"
+   "Cult",
+   "Unseen"
   ],
   "category": "Bug Fixes",
   "categorySource": "heading",
@@ -50649,6 +50707,7 @@
   ],
   "factions": [
    "Neutral",
+   "Unseen",
    "Blue Dragon"
   ],
   "category": "Bug Fixes",
@@ -61897,6 +61956,7 @@
   ],
   "factions": [
    "Neutral",
+   "Unseen",
    "Cult"
   ],
   "category": "Class Balance",
@@ -62359,7 +62419,7 @@
    "Alchemist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Neutral"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -62450,7 +62510,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
@@ -66976,7 +67038,8 @@
    "Herbalist"
   ],
   "factions": [
-   "Blue Dragon"
+   "Blue Dragon",
+   "Unseen"
   ],
   "category": "Class Balance",
   "categorySource": "heading",
@@ -68255,7 +68318,9 @@
   "classes": [
    "Herbalist"
   ],
-  "factions": [],
+  "factions": [
+   "Unseen"
+  ],
   "category": "Class Balance",
   "categorySource": "heading",
   "kind": "change",
